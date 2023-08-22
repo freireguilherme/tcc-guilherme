@@ -1,0 +1,18 @@
+\chapter{Apêndice A} \label{apen:apendice1}
+
+
+Os códigos a seguir foram desenvolvidos pelo autor com base em informações disponíveis na internet, como o manual de ajuda do CoppeliaSim e códigos de exemplo do Robotics ToolBox disponibilizados. O fluxo de mensagens trocadas pelo CoppeliaSim e o RTB é exemplificado na figura \ref{img:diagrama_codigo.png}; o fluxo geral do algoritmo da simulação envolvendo as duas ferramentas é visto na figura \ref{img:diagrama_fluxo_codigo.png}.
+
+\imagem{0.8}{diagrama_codigo.png}{Fluxo de mensagens trocadas pelo CoppeliaSim e o RTB}{Fonte: Autoria própria}
+\imagem{0.7}{diagrama_fluxo_codigo.png}{Fluxo geral do algoritmo da simulação}{Fonte: Autoria própria}
+
+
+\newpage
+
+
+\section{Codigo em Lua para controle da simulação no CoppeliaSim}
+\sourcecodenolist{Server no CoppeliaSim}{server}{lua}{server.lua}
+\sourcecodenolist{Client Python}{client}{python}{conection.py}
+\sourcecodenolist{EEzybotArm DHModel - Completo}{dhmodel}{python}{eezybotDH_completo.py}
+\sourcecodenolist{EEzybotArm DHModel - Cadeia Curta}{dhmodel_short}{python}{eezybotDH_simplificado.py}
+\sourcecodenolist{EEzybotArm DHModel - Cadeia Longa}{dhmodel_long}{python}{eezybotDH_simplificado_chainL.py}

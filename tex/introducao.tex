@@ -1,0 +1,46 @@
+%--------------------------------------------------------------------------------------
+% Este arquivo contém a sua introdução, objetivos e organização do trabalho
+%--------------------------------------------------------------------------------------2\chapter{Introdução}
+\chapter{Introdução}
+
+A palavra robô tem origem tcheca e significa servidão, aplicada primeiramente numa peça de  teatro de 1920 \cite{Spong2020}. Desde então seu significado ampliou-se, muito se desenvolveu e grandes investimentos foram feitos para que em 1961 o primeiro manipulador robótico fosse lançado, Unimate, por George Devol \cite{Granatyr2017a}.
+
+Os robôs então tiveram grande impacto na sociedade. Hoje os números só aumentam: são mais de 3 milhões de robôs operando em fábricas, com bilhões investidos. Dados da revista “2021 World Robot Report” \cite{Heer2021a}, da Federação Internacional de Robótica, indicam aumento de 10\% de novas unidades instaladas no ano de 2021, um dos melhores anos desde 2018, isso após a pandemia, como mostra a figura \ref{img:figura1.jpg}.
+
+\imagem{0.2}{figura1.jpg}{Novas instalações de robôs industriais por ano.}{\citeonline{Heer2021a}}
+
+Na literatura, robôs fascinam e fazem a imaginação correr. Levados por esse sentimento, pessoas ao redor do mundo  se propõem a desenvolver projetos caseiros dos mais diversos tipos, incluindo robôs e manipuladores robóticos. Essa é a cultura maker, uma subcultura da cultura do DIY ( Do It Yourself), o faça você mesmo, porém a cultura maker é voltada para projetos que envolvem tecnologia, abrangendo diversas áreas do conhecimento, como física, mecânica, eletrônica, engenharia e claro, robótica. \cite{Marini2019a}
+
+Se apropriando desses dois conceitos, de manipuladores robóticos e o desenvolvimento do conhecimento por meio da cultura maker, esse trabalho se propõe a expandir um projeto tido como amador, compartilhado num repositório de entusiastas da cultura maker, e analisar sua cinemática.
+
+Um modelo que tem destaque é o braço robótico com geometria do paralelogramo. Muitos projetos amadores possuem essa estrutura, que também tem grande espaço em uso profissional, seja na indústria ou mesmo em operações médicas. Esse tipo de configuração permite que a ponta do braço robótico, onde se posiciona a sua ferramenta, sempre tenha uma orientação constante, usualmente paralela ao chão, sendo grande vantagem em aplicações industriais.
+
+Ao combinar o CoppeliaSim e o Robotics Toolbox for Python, esta pesquisa visa proporcionar uma abordagem integrada e abrangente para a simulação e análise do manipulador do tipo braço robótico articulado com geometria em paralelogramo,  permitindo uma melhor compreensão do comportamento desse tipo de robô e enriquecendo o conjunto de recursos disponíveis para a comunidade acadêmica e o estudo da robótica.
+
+\section{Definição do Problema}
+
+A cultura maker proporciona a difusão e interesse por temas tecnológicos, como a robótica, uma área que é de grande interesse capital e de contínuo desenvolvimento. No mundo amador, projetos que envolvem braços robóticos com geometria em paralelo são bastante populares. As indústrias têm interesse nesse tipo de braço robótico, esses com geometria em paralelo, pois possuem características interessantes ao tipo de função que executam \cite{Siciliano2009}.
+
+Dito isso, analisar um projeto dito como amador da cultura maker de um braços robótico com geometria em paralelo, aplicando conceitos acadêmicos e ferramentas de simulação para determinar funções de juntas é um grande desafio. Esse tipo de geometria é mais complexa de se analisar e controlar por possuir juntas passivas e ativas, destacando a importância que esse trabalho carrega não somente em termos educacionais, mas também no âmbito financeiro. Do ponto de vista educacional, o projeto de análise, modelagem e simulação de braços robóticos com geometria em paralelo usados em paletização, especificamente, ainda não é tão comum e debatido.
+
+
+\section{Objetivos}
+
+\subsection{Objetivo Geral} 
+
+O objetivo deste trabalho é modelar e simular o modelo de braço robótico de geometria em paralelo que possui quatro juntas ativas, oito juntas passivas e três cadeias fechadas na ferramenta CoppeliaSim, um ambiente de simulação completo e gratuito para estudantes; e por meio da ferramenta Robotics Toolbox for Python, obter ângulos de junta para esse modelo utilizando suas funções nativas de cálculo de cinemática inversa de forma explícita, pois o CoppeliaSim encapsula as funcionalidades de cinemática.
+
+\subsection{Objetivos específicos}
+
+\begin{itemize}
+	\item Estudar os conceitos básicos de robótica, como representação de orientação e posição no plano 2D e 3D; braços robóticos e suas geometrias; Cinemática direta e inversa dos braços robóticos;
+    \item Em posse dos arquivos CAD do manipulador de interesse, modelar a hierarquia de elos e juntas no simulador CoppeliaSim, tendo em vista a geometria em paralelo dessa manipulador;
+    \item Fazer a comunicação entre as ferramentas CoppeliaSim e Robotic Toolbox para Python;
+	\item No RTB, obter ângulos de juntas por meio da cinemática inversa;
+\end{itemize}
+
+\section{Organização do trabalho}
+ 
+O Capítulo 1 apresenta uma breve introdução da robótica e suas aplicações, incluindo os manipuladores robóticos e destaca a importância da modelagem cinemática dos manipuladores. Também menciona os braços robóticos com geometria em paralelogramo e cadeias fechadas. Aborda as ferramentas de simulação e modelagem CoppeiaSim e Robotics Toolbox for python, e também a definição do problema e objetivos deste trabalho.
+O Capítulo 2 trata, essencialmente, da revisão bibliográfica do trabalho que contém conceitos úteis relacionados a modelagem e simulação em ambientes como o CoppeliaSim, trabalhos relacionados ao tema de modelagem em ambientes virtuais e conceitos relacionados aos manipuladores robóticos, procedimentos necessários para a obtenção da modelagem cinemática do manipulador. No Capítulo 3 são apresentados as técnicas e os métodos adotados para o desenvolvimento deste trabalho.  Os passos para a modelagem, a comunicação entre as plataformas de trabalho e simulações. No Capítulo 4 apresentam-se os resultados finais e validação dos modelos. Finalmente no Capítulo 5 a conclusão desse trabalho e as propostas para trabalhos futuros.
+

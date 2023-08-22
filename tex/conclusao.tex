@@ -1,0 +1,16 @@
+%--------------------------------------------------------------------------------------
+% Este arquivo contém a sua conclusão
+%--------------------------------------------------------------------------------------
+\chapter{Considerações Finais e Trabalhos Futuros}
+
+Neste trabalho, investigamos a modelagem e análise de um braço robótico do tipo EEzybotArm com geometria em paralelogramo, por meio da integração entre o CoppeliaSim e o Robotics Toolbox for Python (RTB), bem como alternativas complementares de controle. Ao final desta pesquisa, é possível traçar conclusões pertinentes e reflexões acerca dos resultados alcançados.
+
+A modelagem do EEzybotArm MK2 no CoppeliaSim demonstrou ser eficaz, permitindo a representação acurada de suas juntas e funcionalidades básicas. No entanto, a tentativa de controle utilizando o RTB revelou limitações na modelagem de manipuladores com cadeia fechada (Fig. \ref{img:eezybot_dhcompleto.png} e Fig. \ref{img:eezybot_dhlong_plot}). Tal constatação ressalta a importância de considerar abordagens alternativas quando se depara com complexidades geométricas.
+
+A busca por soluções eficazes levou-nos a explorar um controlador desenvolvido em Python, gentilmente disponibilizado por @meisben no GitHub e com base no modelo geométrico de \citeonline{costa2017}. Essa alternativa provou ser bem-sucedida, permitindo o cálculo da cinemática inversa e a transmissão de parâmetros das juntas para o CoppeliaSim via protocolo ZMQ. Essa abordagem ressalta a flexibilidade e a adaptabilidade como fatores cruciais na pesquisa em robótica, proporcionando soluções viáveis quando os métodos convencionais apresentam limitações.
+
+Este estudo contribui para a compreensão das complexidades envolvidas na modelagem e análise de manipuladores robóticos com geometria em paralelogramo. A demonstração da eficácia de abordagens alternativas amplia as opções disponíveis para a simulação e controle de sistemas robóticos, mesmo diante de configurações mais desafiadoras. As lições aprendidas neste trabalho podem servir como base para pesquisas futuras na busca por soluções mais precisas e eficientes.
+
+É importante ressaltar que, apesar dos avanços alcançados, este estudo enfrentou limitações, especialmente em relação à integração do RTB com manipuladores de cadeia fechada. Essa limitação sugere uma área de pesquisa promissora para o desenvolvimento de ferramentas mais abrangentes e eficazes, como o uso do pacote python TriP \cite{baumgartner2022trip}, voltado também para modelagem de estruturas rígidas. Além disso, a aplicabilidade dos resultados em cenários mais amplos da robótica e em contextos práticos também merece exploração adicional.
+
+Em última análise, este trabalho ressalta que a robótica é um campo em constante evolução, onde a busca por soluções inovadoras e adaptativas é fundamental. A combinação de modelagem, simulação e abordagens alternativas de controle abre caminhos para avanços significativos e insights valiosos em um cenário tecnológico em constante mudança.

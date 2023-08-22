@@ -1,0 +1,2 @@
+### Trabalho de conclusão de Curso
+Modelagem e Simulação do EEZYbotArm MK2 utilizando as ferramentas CoppeliaSim para modelagem e ambiente virtual e Robotics ToolBox for Python (e outros scritps python) para cálculo de cinemática inversa.

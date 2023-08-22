@@ -1,0 +1,186 @@
+\chapter{Resultados} \label{ch:RD}
+
+Neste capítulo, são apresentados os resultados obtidos por meio das etapas de modelagem e controle do robô manipulador EEzybotArm, um manipulador com geometria em paralelogramo, utilizando as ferramentas CoppeliaSim, Robotics Toolbox for Python (RTB) e alternativas ao RTB.
+
+\section{Modelagem no CoppeliaSim}
+A modelagem do EEzybotArm no ambiente virtual do CoppeliaSim foi realizada com sucesso. Foram criados os componentes correspondentes às juntas e ao efetuador, refletindo o funcionamento básico do manipulador. As articulações foram configuradas para seguir os movimentos esperados, e as simulações confirmaram a fidelidade do modelo à realidade.
+
+ No entanto, a tentativa de controle utilizando o RTB para manipular os ângulos das juntas no CoppeliaSim encontrou desafios. Embora a comunicação entre as plataformas tenha sido estabelecida com sucesso, o modelo do EEzybotArm no RTB não alcançou resultados satisfatórios (Fig. \ref{img:eezybot_dhcompleto.png} e Fig. \ref{img:eezybot_dhlong_plot}). Na figura \ref{img:eezybot_dhshort_plot} a representação visual assemelha-se com o real, porem essa limitação sugere que o RTB pode não ser a solução mais adequada para modelar manipuladores com cadeia fechada, pois falta meios de definir as juntas passivas, e descrever situações onde duas ou mais juntas existem muito próximas entre si, com seus eixos de rotação paralelos. Apesar de ser uma caixa de ferramentas poderosa, com funcionalidades robustas e fáceis de usar e resultados visualmente muito ricos, cadeias fechadas ainda não são suportadas por essa ferramenta. 
+
+\section{Alternativas ao RTB}
+Para contornar essa limitação, explorou-se alternativas, notadamente um controlador desenvolvido por @meisben \cite{MoneyCoomes2021} disponível no GitHub. Através deste controlador, baseado em Python e que também conecta-se com uma placa Arduino, foi possível calcular a cinemática inversa do EEzybotArm e transmitir os parâmetros das juntas para o CoppeliaSim via ZMQ. Os resultados dessa abordagem se mostraram positivos, com a simulação bem-sucedida (Fig. \ref{img:resultados.png}) e o cumprimento dos objetivos traçados, que eram a modelagem e simulação do braço robótico utilizando um controlador externo ao CoppeliaSim para cálculos de cinemática inversa. Diferentemente do RTB, essa solução é feita pelo método geométrico, ao passo que o RTB realiza a computação por meio de análise numérica pelas transformadas elementares. Houve certa discrepância entre a posição do órgão terminal no CoppeliaSim em comparação com o resultado da cinemática inversa no python (Fig. \ref{img:console.png}). Em outros testes foram encontrados os seguintes valores capturados pelas imagens (\ref{img:resultados3.png}, \ref{img:console3.png}, \ref{img:resultados4.png} e \ref{img:console4.png}).
+
+\imagem{0.4}{resultados.png}{EEzybotArm: Plot no python e simulação no CoppeliaSim - Simulação 1}{Autoria própria}
+\imagem{0.65}{console.png}{EEzybotArm: resultado apos calculo de IK e envio para o CoppeliaSim - Simulação 1}{Autoria própria}
+
+\imagem{0.4}{resultados3.png}{EEzybotArm: Plot no python e simulação no CoppeliaSim - Simulação 2}{Autoria própria}
+\imagem{0.65}{console3.png}{EEzybotArm: resultado apos calculo de IK e envio para o CoppeliaSim - Simulação 2}{Autoria própria}
+
+\imagem{0.4}{resultados4.png}{EEzybotArm: Plot no python e simulação no CoppeliaSim - Simulação 3}{Autoria própria}
+\imagem{0.65}{console4.png}{EEzybotArm: resultado apos calculo de IK e envio para o CoppeliaSim - Simulação 3}{Autoria própria}
+
+
+Isso se dá, entre outras possíveis causas, é erros de ajuste inicial das juntas no Coppelia e calibragem. Outro fator que provoca movimentos inesperados é o próprio motor (engine) de simulação do CoppeliaSim, que tenta manter tudo junto, como definido pelas constrains (restrições) entre os \textit{dummy's} (tanto em código como definindo o \textit{dummy link type}). Mas pela forma que o braço se apresenta em comparação com o plot da função em python, a simulação foi positiva, sendo necessário apenas pequenas correções.
+
+
+Consequentemente, a combinação de diferentes abordagens culminou na modelagem satisfatória e na operação eficaz do EEzybotArm no ambiente virtual do CoppeliaSim. A superação das limitações do RTB através da implementação de controladores alternativos validou a viabilidade de simular e controlar o manipulador com geometria em paralelogramo, realçando a importância de soluções integradas e adaptativas na pesquisa e desenvolvimento robótico.
+\begin{comment}
+
+\section{Seção de exemplo 1 - Códigos} \label{sec:resex1}
+
+\subsection{Subseção de exemplo 1 - Inserindo trechos de códigos}
+ 
+O nosso querido Leonardo Cavalcante providenciou um comando que deixa nossos trechos de códigos bonitinhos e gera um elemento pré-textual de Lista de Códigos. 
+
+Os códigos são adicionados através do comando seguinte:
+
+\textbackslash sourcecode\{ Descrição \}\{Label\}\{Linguagem\}\{Arquivo com extensão\}
+
+Um exemplo pode ser visto no código \ref{cmd:cron} abaixo.
+
+\sourcecode{Configuração do intervalo de execução no Script Agendador}{cron}{javascript}{cron.js}
+
+
+\section{Seção de exemplo 2 - Listas} \label{sec:resex2}
+
+\subsection{Subseção de exemplo 2 - Lista de itens} 
+
+Existem alguns tipos de listas no Latex, iremos exemplificar a lista sem numeração (seção \ref{subsubsec:itemize}), a lista enumerada (seção \ref{subsubsec:enumerate}) e a lista mista (seção \ref{subsubsec:mista}). As listas podem ser encadeadas de diversas maneiras,
+de acordo com a necessidade do autor.
+
+\subsubsection{Subsubseção de exemplo 1 - Lista sem numeração} \label{subsubsec:itemize}
+
+Este é um exemplo de lista sem numeração.
+
+\begin{itemize}
+	\item \textbf{Cadastrar usuário}
+
+		\begin{itemize}
+    		\item Atores
+		    	\begin{itemize}
+    		    	\item Usuário
+		    	\end{itemize}
+
+	    	\item Fluxo de eventos primário
+			    \begin{itemize}
+	    		    \item o usuário deve se cadastrar informando seu nome, \textit{e-mail} e senha;
+		        	\item a API armazena os dados do usuário;
+		    	    \item o usuário é liberado para realizar o \textit{login}.
+			    \end{itemize}
+
+    		\item Fluxo alternativo
+			    \begin{itemize}
+		    	   \item o usuário desiste de se cadastrar e cancela o caso de uso clicando no botão voltar.
+	    		\end{itemize}
+
+		\end{itemize}
+	
+\end{itemize}
+
+\subsubsection{Subsubseção de exemplo 2 - Lista enumerada} \label{subsubsec:enumerate}
+
+Este é um exemplo de lista enumerada.
+
+\begin{enumerate}
+	\item O Usuário deseja ver o histórico das variáveis climáticas, então através da interface de usuário escolhe o período ao qual o histórico se refere;
+	\item A aplicação solicita à API através de uma requisição HTTP contendo o momento de início e o momento do fim do período em seus parâmetros;     			\item A API recebe a solicitação e se comunica com a base de dados, então requere as informações quem possuem a data de leitura no intervalo escolhido;
+	\item A base de dados retorna os dados em formato Json para a API;
+	\item A API responde à requisição retornando os dados, também em formato Json, para a aplicação cliente;
+	\item A aplicação cliente renderiza os gráficos utilizando o conjunto de dados obtidos.
+\end{enumerate}
+
+\subsubsection{Subsubseção de exemplo 3 - Lista mista} \label{subsubsec:mista}
+
+Este é um exemplo de lista mista.
+
+\begin{itemize}
+	\item \textbf{Cadastrar usuário}
+
+		\begin{itemize}
+    		\item Atores
+		    	\begin{itemize}
+    		    	\item Usuário
+		    	\end{itemize}
+
+	    	\item Fluxo de eventos primário
+			    \begin{enumerate}
+	    		    \item o usuário deve se cadastrar informando seu nome, \textit{e-mail} e senha;
+		        	\item a API armazena os dados do usuário;
+		    	    \item o usuário é liberado para realizar o \textit{login}.
+			    \end{enumerate}
+
+    		\item Fluxo alternativo
+			    \begin{itemize}
+		    	   \item o usuário desiste de se cadastrar e cancela o caso de uso clicando no botão voltar.
+	    		\end{itemize}
+
+		\end{itemize}
+
+	\item \textbf{Visualizar dados atuais}
+
+		\begin{itemize}
+		    \item Atores
+	    		\begin{itemize}
+		    	    \item Usuário
+			    \end{itemize}
+    
+	    	\item Pré-condições
+			    \begin{itemize}
+		     	   \item o usuário deve estar autenticado
+			    \end{itemize}
+
+	    	\item Fluxo de eventos primário
+			    \begin{enumerate}
+		    	    \item o usuário deve efetuar o \textit{login} informando o \textit{e-mail} e a senha;
+	    		    \item caso o usuário não seja autenticado, o sistema informa a respeito de credenciais inválidas e encerra o caso de uso;
+		    	    \item a API autentica o usuário;
+    			    \item o usuário é liberado para visualizar os dados atuais dos sensores da estação;
+		        	\item após a visualização o usuário pode finalizar o caso de uso ou efetuar uma nova consulta se desejar.
+			    \end{enumerate}
+
+    		\item Fluxo alternativo
+			    \begin{itemize}
+    			   \item o usuário desiste de visualizar os dados atuais e cancela o caso de uso clicando no botão voltar.
+			    \end{itemize}
+
+		\end{itemize}
+
+	\item \textbf{Visualizar histórico}
+
+		\begin{itemize}
+		    \item Atores
+	    		\begin{itemize}
+		    	    \item Usuário
+	    		\end{itemize}
+
+	    	\item Pré-condições
+    			\begin{itemize}
+			        \item o usuário deve estar autenticado
+			    \end{itemize}
+
+		    \item Fluxo de eventos primário
+			    \begin{enumerate}
+			        \item o usuário deve efetuar o \textit{login} informando o \textit{e-mail} e a senha;
+			        \item caso o usuário não seja autenticado, o sistema informa a respeito de credenciais inválidas e encerra o caso de uso;
+			        \item a API autentica o usuário;
+			        \item o usuário é liberado para escolher qual período cujo histórico será exibido;
+			        \item o usuário seleciona as variáveis a serem exibidas no gráficos de linhas;
+			        \item após a visualização do histórico o usuário pode finalizar o caso de uso se desejar.
+			    \end{enumerate}
+
+		    \item Fluxo alternativo
+			    \begin{enumerate}
+			        \item após a escolha do período de exibição do histórico o usuário pode voltar para a tela anterior e escolher um novo período;
+			        \item o histórico é exibido para o usuário;
+			        \item após a visualização do histórico o usuário pode finalizar o caso de uso ou efetuar uma nova consulta se desejar.
+			    \end{enumerate}
+
+		    \item Fluxo alternativo
+			    \begin{enumerate}
+			        \item o usuário desiste de visualizar o histórico e cancela o caso de uso clicando no botão voltar.
+			    \end{enumerate}
+		\end{itemize}
+\end{itemize}
+
+\end{comment}
+
